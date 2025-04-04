@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
 ![Arduino](https://img.shields.io/badge/-Compatible-00979D?logo=arduino&logoColor=white&label=Arduino&labelColor=gray)
 
-**RomarinCV** is the AI vision system developed to control **Romain**, our custom-built submarine robot. This project combines Python and Arduino code to process camera input, recognize underwater objects, and navigate accordingly.
+**RomarinCV** is the AI vision system developed to control **Romarin**, our custom-built submarine robot. This project combines Python and Arduino code to process camera input, recognize underwater objects, and navigate accordingly. This project was made as part of our studies at Sorbonne University.
 
 ---
 
@@ -52,6 +52,53 @@ RomarinCV/
 - YOLOv8 / PyTorch-based AI models
 - Custom made AI model
 - OpenCV for vision processing
+
+---
+## ⚙️ Installation
+
+To get started with RomarinCV on your local machine, follow these steps:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/RomarinCV.git
+cd RomarinCV
+```
+
+> Replace `your-username` with your GitHub username or the actual repo link.
+
+---
+
+### 2. Set Up the Python Environment
+
+It's recommended to use a virtual environment:
+
+```bash
+python -m venv .venv --system-site-packages # Must include site package if using picamera !
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 3. Run the Main Program
+
+To launch the main AI + control loop (submarine in action):
+
+```bash
+python AI_vision/webcamV2.py
+```
+
+To run detection only (no movement):
+
+```bash
+python CameraScripts/cleanCamera.py
+```
 
 ---
 
