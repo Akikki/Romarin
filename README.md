@@ -13,19 +13,19 @@ Below is a simplified overview of the most important folders and scripts in the 
 
 ```
 RomarinCV/
-├── **AI_vision/**
+├── AI_vision/
 │   └── webcamV2                # Current execution script
 │
-├── **Data/**
+├── Data/
 │   ├── analyze.py              # Show a full model analysis with stats
 │   ├── summary.py              # Shows a summary of the models
 │   └── model.py                # Shows a web graph of the model
 │
-├── **models/**
+├── models/
 │   ├── best.pt                 # Trained YOLO model used for object detection
 │   └── best.onnx               # Converted ONNX version for lighter deployment
 │
-├── **CameraScripts/**
+├── CameraScripts/
 │   ├── cleanCamera.py          # Main camera testing using pycams, with a Inference output & a blank output (both video)
 │   └── piCamera.py             # Standard scripts for pycamera
 ```
@@ -49,7 +49,8 @@ RomarinCV/
 
 - Python 3.9+
 - Arduino C/C++
-- YOLOv5 / PyTorch-based AI models
+- YOLOv8 / PyTorch-based AI models
+- Custom made AI model
 - OpenCV for vision processing
 
 ---
