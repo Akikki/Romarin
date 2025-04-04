@@ -1,2 +1,3 @@
-# Romarin
-A core system for the Romarin Submarine
+# 🧩 RomarinCV
+
+![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
