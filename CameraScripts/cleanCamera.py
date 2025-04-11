@@ -5,7 +5,7 @@ from picamera2 import Picamera2
 import threading
 
 # Use a smaller/faster model for the Pi
-model = YOLO("yolov8n.pt")
+model = YOLO("../models/best.pt")
 classNames = model.names
 
 # Initialize main camera (camera 0) for detection
