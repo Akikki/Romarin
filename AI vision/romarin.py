@@ -115,9 +115,10 @@ try:
                             0.8, (255, 255, 255), 2)
                 
                 mot1, mot2, mot3 = tr.direc(center_x, center_y, 320, 240)
-                tr.send_command(mot1)
-                tr.send_command(mot2)
-                tr.send_command(mot3)
+                for i in range(frame_count % skip_interval):
+                    tr.send_command(mot1)
+                    tr.send_command(mot2)
+                    tr.send_command(mot3)
 
             # Display both windows in the main thread
             cv2.imshow("Picamera Detection", img)
