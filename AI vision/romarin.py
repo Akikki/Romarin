@@ -82,7 +82,6 @@ try:
             tr.telecom(list(keys.values()))
         else:
             tr.telecom(list(keys.values()))
-            success, img = cap.read()
             results = model(img, stream=True)
 
             frame_count += 1
