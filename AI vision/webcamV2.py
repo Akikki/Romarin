@@ -34,7 +34,7 @@ cap = cv2.VideoCapture(0)
 cap.set(3, 640)
 cap.set(4, 480)
 
-model = YOLO("yolo11s.pt")
+model = YOLO("yolov8n.pt")
 # model = YOLO("best.pt")
 
 # object classes

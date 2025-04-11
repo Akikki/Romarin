@@ -5,7 +5,8 @@ import os
 import serial
 from pynput import keyboard
 
-arduino = serial.Serial(port='COM6', baudrate=9600, timeout=1)
+# arduino = serial.Serial(port='COM6', baudrate=9600, timeout=1)
+arduino = serial.Serial(port='/dev/ttyACM0', baudrate=9600, timeout=1)
 
 def send_command(mot):
     id, speed = (mot)
