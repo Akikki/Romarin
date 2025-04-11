@@ -8,6 +8,8 @@ from pynput import keyboard
 import pdb
 import time
 
+# * Enable sorting
+sorting = True
 # * mode de controle
 keys = {'z': 0, 'q': 0, 's': 0, 'd': 0, 'c': 0, 'v': 0, 'Z': 0, 'S': 0}
 
@@ -26,7 +28,8 @@ def on_release(key):
         pass
 
 # * Use a smaller/faster model for the Pi
-model = YOLO("../models/best.pt")
+#model = YOLO("../models/best.pt")
+model = YOLO("yolo11n.pt")
 classNames = model.names
 
 # Démarrer l'écouteur clavier en arrière-plan
@@ -90,10 +93,12 @@ try:
                 new_boxes = []
                 for result in results:
                     for box in result.boxes:
-                        x1, y1, x2, y2 = box.xyxy[0]
-                        conf = float(box.conf[0])
                         cls = int(box.cls[0])
-                        new_boxes.append((x1, y1, x2, y2, conf, cls))
+                        if not sorting or classNames[cls]== "cell phone":
+                            x1, y1, x2, y2 = box.xyxy[0]
+                            conf = float(box.conf[0])
+                            new_boxes.append((x1, y1, x2, y2, conf, cls))
+
                 last_boxes = new_boxes
 
             # Draw detection boxes on the main image
