@@ -7,9 +7,9 @@ from pynput import keyboard
 import tracking as tr
 
 # ================================================
-# Global Configuration and State Variables
+# ! Global Configuration and State Variables
 # ================================================
-# Enable sorting (for example, to filter by detection class)
+# Enable sorting (for specific detection class)
 sorting = True
 
 # Manual control keys (updated by the keyboard listener)
@@ -29,19 +29,19 @@ def on_release(key):
     except AttributeError:
         pass
 
-# Start keyboard listener in the background
+# Start keyboard listener in the background (using library listener constructor)
 listener = keyboard.Listener(on_press=on_press, on_release=on_release)
 listener.daemon = True
 listener.start()
 
 # ================================================
-# Initialize YOLO Model
+# ! Initialize YOLO Model
 # ================================================
 model = YOLO("yolo11n.pt")
 classNames = model.names
 
 # ================================================
-# Initialize Picamera2
+# ! Initialize Picamera2
 # ================================================
 picam2 = Picamera2()
 # Configure for preview; adjust size and format as needed.
@@ -50,7 +50,7 @@ picam2.configure(config)
 picam2.start()
 
 # ================================================
-# Detection and Caching Variables
+# ! Detection and Caching Variables
 # ================================================
 # Run detection every skip_interval frames (you can adjust this value)
 skip_interval = 15
@@ -68,15 +68,9 @@ detection_timeout = 1.0  # seconds until detection is considered stale
 running = True
 
 # ================================================
-# Motor Control Thread (Manual overrides Auto)
+# ! Motor Control Thread (Manual overrides Auto)
 # ================================================
 def motor_control_loop():
-    """
-    Runs at a high frequency (20 Hz). It performs the following checks:
-    - If any manual key is pressed (detected in the keys dictionary), it sends manual commands using tr.telecom.
-    - Else if a fresh detection exists (based on last_target), it computes motor commands using tr.direc.
-    - Otherwise, if no fresh detection is available, it sends stop commands.
-    """
     global last_target, last_detection_time
     while running:
         if any(keys.values()):
@@ -101,7 +95,7 @@ motor_thread = threading.Thread(target=motor_control_loop, daemon=True)
 motor_thread.start()
 
 # ================================================
-# Main Loop: Capture Frames, Run Detection, and Draw
+# ! Main Loop: Capture Frames, Run Detection, and Draw
 # ================================================
 try:
     while True:

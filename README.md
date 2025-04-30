@@ -14,7 +14,7 @@ Below is a simplified overview of the most important folders and scripts in the 
 ```
 RomarinCV/
 ├── AI_vision/
-│   └── webcamV2                # Current execution script
+│   └── finalRomarin.py                # Current execution script
 │
 ├── Data/
 │   ├── analyze.py              # Show a full model analysis with stats
