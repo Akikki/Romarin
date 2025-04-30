@@ -83,6 +83,7 @@ Install the required Python packages:
 ```bash
 pip install -r requirements.txt
 ```
+
 Install torch using a torch install command found on : https://pytorch.org/get-started/locally/
 ---
 

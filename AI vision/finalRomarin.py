@@ -10,7 +10,7 @@ import tracking as tr
 # ! Global Configuration and State Variables
 # ================================================
 # Enable sorting (for specific detection class)
-sorting = True
+sorting = False
 
 # Manual control keys (updated by the keyboard listener)
 keys = {'z': 0, 'q': 0, 's': 0, 'd': 0, 'c': 0, 'v': 0, 'Z': 0, 'S': 0}
@@ -37,7 +37,7 @@ listener.start()
 # ================================================
 # ! Initialize YOLO Model
 # ================================================
-model = YOLO("yolo11n.pt")
+model = YOLO("../models/best.pt")  # Load your YOLOv8 model
 classNames = model.names
 
 # ================================================
