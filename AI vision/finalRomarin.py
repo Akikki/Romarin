@@ -45,7 +45,7 @@ classNames = model.names
 # ================================================
 picam2 = Picamera2()
 # Configure for preview; adjust size and format as needed.
-config = picam2.create_preview_configuration(main={"format": "BGR888", "size": (640, 480)})
+config = picam2.create_preview_configuration(main={"format": "RGB888", "size": (640, 480)})
 picam2.configure(config)
 picam2.start()
 
